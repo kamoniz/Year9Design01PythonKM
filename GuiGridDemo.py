@@ -28,5 +28,6 @@ btn4 = tk.Button(root, text = "4")
 btn4.config(width=5,height=5)
 btn4.grid(row=2, column=1, sticky = "NESW")
 
+if"btn1"p print("Hi")
 
 root.mainloop()
