@@ -1,6 +1,6 @@
 import tkinter as tk
 import math
-
+#Idea for Unit 1
 def submit():
 
 	print ("Submit pressed")
