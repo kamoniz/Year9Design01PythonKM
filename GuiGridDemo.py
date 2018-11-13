@@ -5,7 +5,7 @@ root = tk.Tk()
 #creates main window. To do this, we need to call Tk() function
 #root.mainloop()
 #THIS IS HOW YOU OPEN A SECOND WINDOW
- 
+ #Important for calculator
 
 label = tk.Label(root, text = "Welcome to Concentration")
 label.grid(row = 0 ,column = 0, columnspan=2)
