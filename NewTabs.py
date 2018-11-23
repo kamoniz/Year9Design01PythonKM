@@ -2,6 +2,23 @@ import tkinter as tk
 from tkinter import ttk 
 import math 
 
+
+
+def submit(*args):
+
+	print ("Submit pressed")
+	rt1 = float(entrt1.get())
+	ht1 = float(entht1.get())
+
+	vt1 = math.pi*rt1*rt1*ht1
+	vt1 = round(vt1,3)
+	
+	#output.config(state="normal")
+	outputValue= "Given\nradius:"+str(rt1)+"\nheight:"+str(ht1)+" units\nThe volume is:"+str(vt1)+" units cubed"
+	
+	output.insert(tk.INSERT,outputValue)
+	
+
 root = tk.Tk()
 root.title("Calculator")
 
@@ -28,12 +45,14 @@ labht1.pack()
 entht1 = tk.Entry(tab1)
 entht1.pack()
 
-btnt1 = tk.Button(tab1, text="Submit")
+output = tk.Text(tab1, width=50, height=10, borderwidth=3, relief=tk.GROOVE)
+#output.config(state="disabled")
+output.pack()
+
+btnt1 = tk.Button(tab1, text="Submit", font="impact", background="red", command=submit)
 btnt1.pack()
 
-output = tk.Text(tab1, width=50, height=10, borderwidth=3, relief=tk.GROOVE)
-output.config(state="disabled")
-output.pack()
+
 #Put widgets into tab1 instead of root
 #******************************************************
 
@@ -43,7 +62,7 @@ tab2 = ttk.Frame(tabControl)
 #Step 1: Create or Construct the element
 labrt2 = tk.Label(tab2, text="Length")
 #Step 2: configure element/widget/object
-labrt2.configure(background="red", font="impact")
+labrt2.configure(background="red",font= "Impact")
 #Step 3: Pack the element put it on the window that is displayed
 labrt2.pack()
 
@@ -60,9 +79,7 @@ entht2.pack()
 btnt2 = tk.Button(tab2, text="Submit")
 btnt2.pack()
 
-output = tk.Text(tab1, width=50, height=10, borderwidth=3, relief=tk.GROOVE)
-output.config(state="disabled")
-output.pack()
+
 
 #*********PUT TABS INTO TAB CONTROL
 tabControl.add(tab1, text="Volume of Cylinder")
