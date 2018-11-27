@@ -3,27 +3,30 @@ from tkinter import ttk
 import math 
 
 def rectangle(*args):
+	output.delete("1.0",tk.END)
 	print ("Submit pressed")
 	lt2 = float(entrt2.get())
 	wt2 = float(entht2.get())
 	
 	vt2 = lt2*wt2
 	
-	outputValuet2= "units\nThe area is"+str(vt2)+"units squared"
-	output.insert(tab2,tk.INSERT,outputValuet2)
+	outputValuet2= "The area is "+str(vt2)+" units squared"
+	output.insert(tk.INSERT,outputValuet2)
 
 def circle(*args):
+	output.delete("1.0",tk.END)
 	print ("Submit pressed")
 	rt3 = float(entrt3.get())
 
 	vt3 = rt3*rt3*3.14159265359
 
-	outputValuet3= "units\nThe area is"+str(vt3)+"units squared"
-	output.insert(tab1,tk.INSERT,outputValuet1) 
+	outputValuet3= "The area is "+str(vt3)+" units squared"
+	output.insert(tk.INSERT,outputValuet3) 
 	
 
 def cylinder(*args):
 
+	output.delete("1.0",tk.END)
 	print ("Submit pressed")
 	
 	rt1 = float(entrt1.get())
@@ -38,7 +41,7 @@ def cylinder(*args):
 	#output.config(state="normal")
 	outputValuet1= "Given\nradius:"+str(rt1)+"\nheight:"+str(ht1)+" units\nThe volume is:"+str(vt1)+" units cubed"
 	
-	output.insert(tab1,tk.INSERT,outputValuet1) 
+	output.insert(tk.INSERT,outputValuet1) 
 	
 	
 
@@ -51,6 +54,8 @@ root.title("Calculator")
 
 
 tabControl = ttk.Notebook(root)
+output = tk.Text(root, width=50, height=10, borderwidth=3, relief=tk.GROOVE)
+
 
 
 
@@ -67,17 +72,17 @@ entrt1 = tk.Entry(tab1)
 entrt1.pack()
 
 labht1 = tk.Label(tab1, text="Height")
-labht1.configure(tab1, font="impact", background="red")
+labht1.configure(font="impact", background="red")
 labht1.pack()
 
 entht1 = tk.Entry(tab1)
 entht1.pack()
 
-output = tk.Text(tab1, width=50, height=10, borderwidth=3, relief=tk.GROOVE)
+#output = tk.Text(tab1, width=50, height=10, borderwidth=3, relief=tk.GROOVE)
 #output.config(state="disabled")
-output.pack()
+#output.pack()
 
-btnt1 = tk.Button(tab1, text="Submit", font="impact", background="red", command=Cylinder)
+btnt1 = tk.Button(tab1, text="Submit", font="impact", background="red", command=cylinder)
 btnt1.pack()
 
 
@@ -104,12 +109,12 @@ labht2.pack()
 entht2 = tk.Entry(tab2)
 entht2.pack()
 
-output = tk.Text(tab2, width=50, height=10, borderwidth=3, relief=tk.GROOVE)
+#output = tk.Text(tab2, width=50, height=10, borderwidth=3, relief=tk.GROOVE)
 #output.config(state="disabled")
-output.pack()
+#output.pack()
 
 
-btnt2 = tk.Button(tab2, text="Submit", font="impact",background="red",command=Rectangle)
+btnt2 = tk.Button(tab2, text="Submit", font="impact",background="red",command=rectangle)
 btnt2.pack()
 
 
@@ -123,17 +128,19 @@ labrt3.pack()
 entrt3 = tk.Entry(tab3)
 entrt3.pack()
 
-output = tk.Text(tab3, width=50, height=10, borderwidth=3, relief=tk.GROOVE)
-output.pack()
+#output = tk.Text(tab3, width=50, height=10, borderwidth=3, relief=tk.GROOVE)
+#output.pack()
 
-btnt3 = tk.Button(tab3, text="Submit", font="impact", background="red", command=Circle)
+btnt3 = tk.Button(tab3, text="Submit", font="impact", background="red", command=circle)
 #REMEMBER TO ASSIGN
 btnt3.pack()
 #*********PUT TABS INTO TAB CONTROL
 tabControl.add(tab1, text="Volume of Cylinder")
 tabControl.add(tab2, text="Area of a Rectangle")
 tabControl.add(tab3, text="Area of a Circle")
-tabControl.grid()
+tabControl.pack()
+output.pack()
+
 
 
 
