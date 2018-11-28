@@ -23,8 +23,19 @@ def circle(*args):
 	outputValuet3= "The area is "+str(vt3)+" units squared"
 	output.insert(tk.INSERT,outputValuet3) 
 	
+def rectangularprism(*args):
+	output.delete("1.0",tk.END)
+	print ("Submit pressed")
+	lt4 = float(entrt4.get())
+	wt4 = float(entwt4.get())
+	ht4 = float(entht4.get())
 
-def cylinder(*args):
+	vt4 = lt4*wt4*ht4
+	
+	outputValuet4= "The volume is "+str(vt4)+" units cubed"
+	output.insert(tk.INSERT,outputValuet4)
+
+def cylindervolume(*args):
 
 	output.delete("1.0",tk.END)
 	print ("Submit pressed")
@@ -81,8 +92,8 @@ entht1.pack()
 #output = tk.Text(tab1, width=50, height=10, borderwidth=3, relief=tk.GROOVE)
 #output.config(state="disabled")
 #output.pack()
-
-btnt1 = tk.Button(tab1, text="Submit", font="impact", background="red", command=cylinder)
+#REMEMBER TO DISABLE OUTPUT BOX!!!!
+btnt1 = tk.Button(tab1, text="Submit", font="impact", background="red", command=cylindervolume)
 btnt1.pack()
 
 
@@ -134,10 +145,49 @@ entrt3.pack()
 btnt3 = tk.Button(tab3, text="Submit", font="impact", background="red", command=circle)
 #REMEMBER TO ASSIGN
 btnt3.pack()
+
+
+#************************TAB FOUR********************************
+tab4 = ttk.Frame(tabControl)
+
+#Step 1: Create or Construct the element
+labrt4 = tk.Label(tab4, text="Length")
+#Step 2: configure element/widget/object
+labrt4.configure(background="red",font= "impact")
+#Step 3: Pack the element put it on the window that is displayed
+labrt4.pack()
+
+entrt4 = tk.Entry(tab4)
+entrt4.pack()
+
+labwt4 = tk.Label(tab4, text="Width")
+labwt4.configure(background="red", font="impact")
+labwt4.pack()
+
+entwt4 = tk.Entry(tab4)
+entwt4.pack()
+
+labht4 = tk.Label(tab4, text="Height")
+labht4.configure(background="red", font="impact")
+labht4.pack()
+
+entht4 = tk.Entry(tab4)
+entht4.pack()
+
+#output = tk.Text(tab2, width=50, height=10, borderwidth=3, relief=tk.GROOVE)
+#output.config(state="disabled")
+#output.pack()
+
+
+btnt4 = tk.Button(tab4, text="Submit", font="impact",background="red",command=rectangularprism)
+btnt4.pack()
+
+
 #*********PUT TABS INTO TAB CONTROL
 tabControl.add(tab1, text="Volume of Cylinder")
 tabControl.add(tab2, text="Area of a Rectangle")
 tabControl.add(tab3, text="Area of a Circle")
+tabControl.add(tab4, text="Volume of a Rectangular Prism")
 tabControl.pack()
 output.pack()
 
