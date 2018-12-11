@@ -3,19 +3,24 @@ from tkinter import ttk
 import math 
 
 def triangle(*args):
+	
+	output.config(state="normal")
 	output.delete("1.0",tk.END)
 	print ("Submit pressed")
 	lt5 = float(entrt5.get())
 	wt5 = float(entht5.get())
 	
-	vt2 = lt5*wt5/2
+	vt5 = lt5*wt5/2
 	
-	outputValuet2= "The area is "+str(vt2)+" units squared"
-	output.insert(tk.INSERT,outputValuet2)
-
+	outputValuet2= "The area is "+str(vt5)+" units squared"
+	output.insert(tk.INSERT,outputValuet5)
+	output.config(state="disabled")
+	userlog.write(outputValuet5)
 
 
 def rectangle(*args):
+	
+	output.config(state="normal")
 	output.delete("1.0",tk.END)
 	print ("Submit pressed")
 	lt2 = float(entrt2.get())
@@ -25,40 +30,53 @@ def rectangle(*args):
 	
 	outputValuet2= "The area is "+str(vt2)+" units squared"
 	output.insert(tk.INSERT,outputValuet2)
+	output.config(state="disabled")
+	userlog.write(outputValuet2)
+
 
 def circle(*args):
+	
+	output.config(state="normal")
 	output.delete("1.0",tk.END)
 	print ("Submit pressed")
 	rt3 = float(entrt3.get())
 
+	
 	vt3 = rt3*rt3*3.14159265359
 
 	outputValuet3= "The area is "+str(vt3)+" units squared"
 	output.insert(tk.INSERT,outputValuet3) 
-	
+	output.config(state="disabled")
+	userlog.write(outputValuet3)
+
 def rectangularprism(*args):
+	
+	output.config(state="normal")
 	output.delete("1.0",tk.END)
 	print ("Submit pressed")
 	lt4 = float(entrt4.get())
 	wt4 = float(entwt4.get())
 	ht4 = float(entht4.get())
-
+	
 	vt4 = lt4*wt4*ht4
 	
 	outputValuet4= "The volume is "+str(vt4)+" units cubed"
 	output.insert(tk.INSERT,outputValuet4)
+	output.config(state="disabled")
+	userlog.write(outputValuet4)
+
 
 def cylindervolume(*args):
 
+	output.config(state="normal")
 	output.delete("1.0",tk.END)
 	print ("Submit pressed")
 	
 	rt1 = float(entrt1.get())
 	ht1 = float(entht1.get())
-
+	
 	vt1 = math.pi*rt1*rt1*ht1
 	vt1 = round(vt1,3)
-	
 	
 	
 	
@@ -66,17 +84,20 @@ def cylindervolume(*args):
 	outputValuet1= "Given\nradius:"+str(rt1)+"\nheight:"+str(ht1)+" units\nThe volume is:"+str(vt1)+" units cubed"
 	
 	output.insert(tk.INSERT,outputValuet1) 
-	
+	output.config(state="disabled")
+	userlog.write(outputValuet1)
+
 def sphere(*args):
 
+	output.config(state="normal")
 	output.delete("1.0",tk.END)
 	print ("Submit pressed")
 	
 	rt6 = float(entrt6.get())
 	
+	
+
 	vt6 = math.pi*rt6*rt6*rt6*4/3
-	
-	
 	
 	
 	
@@ -84,24 +105,29 @@ def sphere(*args):
 	outputValuet6= "The volume is:"+str(vt6)+" units cubed"
 	
 	output.insert(tk.INSERT,outputValuet6) 
-
+	output.config(state="disabled")
+	userlog.write(outputValuet6)
 
 def trapezoid(*args):
 
+	output.config(state="normal")
 	output.delete("1.0",tk.END)
 	print ("Submit pressed")
 	lt7 = float(entrt7.get())
 	wt7 = float(entwt7.get())
 	ht7 = float(entht7.get())
 
+	
+
 	vt7 = (lt7+wt7)/2 *ht7
 	
 	outputValuet7= "The area is "+str(vt7)+" units squared"
 	output.insert(tk.INSERT,outputValuet7)
-
+	output.config(state="disabled")
+	userlog.write(outputValuet7)
 
 def cone(*args):
-
+	output.config(state="normal")
 	output.delete("1.0",tk.END)
 	print ("Submit pressed")
 	rt8 = float(entrt8.get())
@@ -110,13 +136,20 @@ def cone(*args):
 
 	vt8 = 3.14159265359*rt8*rt8*(wt8/3)
 	
-	outputValuet8= "The volume is "+str(vt8)+" units cubed"
+	
+	outputValuet8= "The volume is "+str(vt8)+" units cubed\n"
+	
+	
+	output.insert(tk.INSERT,outputValuet8)
+	output.config(state="disabled")
+	userlog.write(outputValuet8)
+
 	output.insert(tk.INSERT,outputValuet8)
 
 
 def pyramid(*args):
 
-
+	output.config(state="normal")
 	output.delete("1.0",tk.END)
 	print ("Submit pressed")
 	lt9 = float(entrt9.get())
@@ -125,11 +158,33 @@ def pyramid(*args):
 
 	vt9 = (lt9*wt9*ht9)/3
 	
-	outputValuet9= "The volume is "+str(vt9)+" units cubed"
+	outputValuet9= "The volume is "+str(vt9)+" units cubed\n"
 	output.insert(tk.INSERT,outputValuet9)
+	output.config(state="disabled")
+	userlog.write(outputValuet9)
+
+def circumference(*args):
+	output.config(state="normal")
+	output.delete("1.0",tk.END)
+	print ("Submit pressed")
+	
+	r = float(entrt10.get())
+	
+	vt10 = math.pi*r*2
+	
+	#output.config(state="normal")
+	outputValuet10= "The volume is:"+str(vt10)+" units cubed\n"
+	
+	output.insert(tk.INSERT,outputValuet10) 
+
+	output.config(state="disabled")
+	userlog.write(outputValuet10)
 
 
 
+
+userlog = open("log.txt","w") #open a file called log.txt and allow the user to write to it. 
+userlog.write("Log file:")
 
 root = tk.Tk()
 root.title("Calculator")
@@ -140,7 +195,7 @@ root.config(background="#90AFC5")
 
 tabControl = ttk.Notebook(root)
 output = tk.Text(root, width=50, height=10, borderwidth=3, relief=tk.GROOVE)
-
+output.config(state="disabled")
 
 
 
@@ -409,6 +464,24 @@ entht9.pack()
 btnt9 = tk.Button(tab9, text="Submit", font="impact",background="#90AFC5",command=pyramid)
 btnt9.pack()
 
+#************************************TAB TEN********************
+tab10 = ttk.Frame(tabControl)
+
+labrt10 = tk.Label(tab10, text="Radius")
+labrt10.configure(background="#90AFC5",font="impact")
+labrt10.pack()
+
+entrt10 = tk.Entry(tab10)
+entrt10.pack()
+
+#output = tk.Text(tab3, width=50, height=10, borderwidth=3, relief=tk.GROOVE)
+#output.pack()
+
+btnt10 = tk.Button(tab10, text="Submit", font="impact", background="#90AFC5", command=circumference)
+
+#REMEMBER TO ASSIGN
+btnt10.pack()
+
 
 
 #*********PUT TABS INTO TAB CONTROL*************************
@@ -417,14 +490,15 @@ tabControl.add(tab2, text="Area of a Rectangle")
 tabControl.add(tab3, text="Area of a Circle")
 tabControl.add(tab4, text="Volume of a Rectangular Prism")
 tabControl.add(tab5, text="Area of a Triangle")
-tabControl.add(tab6,text="Volume of a Sphere")
+tabControl.add(tab6, text="Volume of a Sphere")
 tabControl.add(tab7, text="Area of a Trapezoid")
 tabControl.add(tab8, text="Volume of a Cone")
 tabControl.add(tab9, text="Volume of a Pyramid")
+tabControl.add(tab10, text="Circumference of a Circle")
 tabControl.pack()
 
 
-output.config(background="mintcream",borderwidth=3,width=100, font="frijole", height=100)
+output.config(background="mintcream",borderwidth=3,width=100, font=("frijole",20), height=100)
 output.pack()
 
 
@@ -433,3 +507,5 @@ output.pack()
 
 
 root.mainloop()
+userlog.close()
+
