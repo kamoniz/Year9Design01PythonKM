@@ -12,7 +12,7 @@ def triangle(*args):
 	
 	vt5 = lt5*wt5/2
 	
-	outputValuet5= "The area is "+str(vt5)+" units squared"
+	outputValuet5= "The area is "+str(vt5)+" units squared\n"
 	output.insert(tk.INSERT,outputValuet5)
 	output.config(state="disabled")
 	userlog.write(outputValuet5)
