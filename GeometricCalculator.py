@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import ttk 
 import math 
 
+#Imports my "Toolbox"
+
 def triangle(*args):
 	
 	output.config(state="normal")
@@ -17,6 +19,7 @@ def triangle(*args):
 	output.config(state="disabled")
 	userlog.write(outputValuet5)
 
+#Basic example of a new defined function
 
 def rectangle(*args):
 	
@@ -181,19 +184,24 @@ def circumference(*args):
 	userlog.write(outputValuet10)
 
 
-
+#Creates Userlog file
 
 userlog = open("log.txt","w") #open a file called log.txt and allow the user to write to it. 
 userlog.write("Log file:")
+
+#Root window
 
 root = tk.Tk()
 root.title("Calculator")
 root.config(background="#90AFC5")
 
 
-
+#tabControl
 
 tabControl = ttk.Notebook(root)
+
+#Output configuration
+
 output = tk.Text(root, width=50, height=10, borderwidth=3, relief=tk.GROOVE)
 output.config(state="disabled")
 
@@ -225,7 +233,7 @@ entht1.pack()
 btnt1 = tk.Button(tab1, text="Submit", font="times", background="#90AFC5", command=cylindervolume)
 btnt1.pack()
 
-
+#Basic example of one tab
 #Put widgets into tab1 instead of root
 #******************************************************
 
@@ -485,6 +493,9 @@ btnt10.pack()
 
 
 #*********PUT TABS INTO TAB CONTROL*************************
+
+#Tabcontrol
+
 tabControl.add(tab1, text="Volume of Cylinder")
 tabControl.add(tab2, text="Area of a Rectangle")
 tabControl.add(tab3, text="Area of a Circle")
@@ -497,6 +508,8 @@ tabControl.add(tab9, text="Volume of a Pyramid")
 tabControl.add(tab10, text="Circumference of a Circle")
 tabControl.pack()
 
+
+#Output configuration
 
 output.config(background="mintcream",borderwidth=3,width=100, font=("Times",20), height=100)
 output.pack()
